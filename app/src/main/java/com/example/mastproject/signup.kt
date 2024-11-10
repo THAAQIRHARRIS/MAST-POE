@@ -46,8 +46,8 @@ class signup : AppCompatActivity() {
 
             if (isValid) {
                 Toast.makeText(this@signup, "Welcome to the app", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,menu::class.java)
-                startActivity(intent)
+               val intent = Intent(this,menu::class.java)
+               startActivity(intent)
             }
         }
 
