@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,6 +16,7 @@ class filter : AppCompatActivity() {
     private lateinit var lvMenu: ListView
     private lateinit var spFilter: Spinner
     private lateinit var btnFilter: Button
+    private lateinit var txtAverage: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,12 +27,21 @@ class filter : AppCompatActivity() {
         lvMenu = findViewById(R.id.lvMenu)
         spFilter = findViewById(R.id.spFilter)
         btnFilter = findViewById(R.id.btnFliter)
+        txtAverage = findViewById(R.id.txtAverage)
 
-        // Sample data (normally, this would come from another activity or data source)
-        menuItems.add(MenuItem("Spring Rolls", "Crispy rolls", 5.0, "Starters"))
-        menuItems.add(MenuItem("Pasta", "Creamy Alfredo pasta", 12.0, "Mains"))
-        menuItems.add(MenuItem("Chocolate Cake", "Rich chocolate cake", 7.0, "Desserts"))
-        menuItems.add(MenuItem("Salad", "Fresh garden salad", 4.0, "Starters"))
+
+        menuItems.add(MenuItem("Pancakes and Sausages", "Crispy rolls", 25.0, "Starters"))
+        menuItems.add(MenuItem("Pasta (Chicken)", "Creamy Alfredo pasta", 45.0, "Mains"))
+        menuItems.add(MenuItem("Chocolate Cake", "Rich chocolate cake", 37.0, "Desserts"))
+        menuItems.add(MenuItem("Green Salad", "Fresh garden salad", 20.0, "Starters"))
+        menuItems.add(MenuItem("Waffles (Chocolate)", "Crispy rolls", 25.0, "Starters"))
+        menuItems.add(MenuItem("Pasta (veg)", "Creamy Alfredo pasta", 45.0, "Mains"))
+        menuItems.add(MenuItem("Cheese Cake (Raspberry)", "Rich chocolate cake", 37.0, "Desserts"))
+        menuItems.add(MenuItem("Fruit Salad", "Fresh garden salad", 20.0, "Starters"))
+        menuItems.add(MenuItem("Soothe", "Crispy rolls", 25.0, "Starters"))
+        menuItems.add(MenuItem("Hamburger and chips", "Creamy Alfredo pasta", 45.0, "Mains"))
+        menuItems.add(MenuItem("Ice-cream (choco/peanut)", "Rich chocolate cake", 37.0, "Desserts"))
+        menuItems.add(MenuItem("eggs and toast", "Fresh garden salad", 20.0, "Starters"))
 
 
         lvMenu.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, menuItems)
@@ -55,10 +66,20 @@ class filter : AppCompatActivity() {
 
                 lvMenu.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, menuItems)
             }
+
+            if (selectedCourse == "Starters"){
+                txtAverage.text = "Average price of the $selectedCourse is R22.5"
+            }else{
+                if (selectedCourse == "Mains"){
+                    txtAverage.text = "Average price of the $selectedCourse is R45"
+                }else{
+                    txtAverage.text = "Average price of the Desserts is is R37 "
+                }
+            }
         }
     }
 
-    // Data class to represent menu items
+
     data class MenuItem(val name: String, val description: String, val price: Double, val course: String) {
         override fun toString(): String {
             return "$name - $course (R$price)"

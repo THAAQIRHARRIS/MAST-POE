@@ -39,7 +39,8 @@
         android:id="@+id/txtCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Items: 0" />
+        android:text="Items: 0"
+        android:textColor="#E91E63" />
 
     <Button
         android:id="@+id/btnAdd"
@@ -47,6 +48,14 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:text="Add Menu Item" />
+
+    <TextView
+        android:id="@+id/txtDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hold to delete items from menu"
+        android:textAlignment="center"
+        android:textColor="#E91E63" />
 
     <ListView
         android:id="@+id/lstItem"

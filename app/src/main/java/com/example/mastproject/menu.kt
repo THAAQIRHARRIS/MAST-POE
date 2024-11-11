@@ -39,7 +39,7 @@ class menu : AppCompatActivity() {
         val courses = arrayOf("Select Course", "Starters", "Mains", "Desserts")
         spnCourse.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, courses)
 
-        // Add item to the list
+
         btnAdd.setOnClickListener {
             val dishName = edtName.text.toString()
             val description = edtDes.text.toString()
