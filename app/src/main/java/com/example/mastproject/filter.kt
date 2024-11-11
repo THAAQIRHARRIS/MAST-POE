@@ -76,7 +76,12 @@ class filter : AppCompatActivity() {
                     txtAverage.text = "Average price of the Desserts is is R37 "
                 }
             }
+            lvMenu.setOnItemClickListener { _, _, position, _ ->
+                val selectedItem = lvMenu.getItemAtPosition(position) as MenuItem
+                Toast.makeText(this, "${selectedItem.name} has been added to your cart.", Toast.LENGTH_SHORT).show()
+            }
         }
+
     }
 
 
